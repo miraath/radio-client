@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 // import logo from './logo.svg';
@@ -35,15 +35,15 @@ class App extends Component {
     const station = (stations.filter(item => (
       item.slug === current
     )))[0];
-    console.log(station);
+    // console.log(station);
 
     return (
-      <div className="App">
+      <div className="radio">
         {
           (current !== false) &&
           <div>
-            <div className="">
-              <h2>الأقسام</h2>
+            <div className="col-lg-4 col-md-4 radio-menu">
+              <h2 className="radio-menu-title">الأقسام</h2>
               <ul>
                 {stations.map(item => (
                   <li key={item.slug}>
@@ -54,17 +54,22 @@ class App extends Component {
                 ))}
               </ul>
             </div>
-            <div className="">
+            {/* Radio */}
+            <div className="col-lg-8 col-md-8 radio-item">
               <h2>{station.name}</h2>
               <p>{station.description}</p>
-              <img src={url + station.logo} alt="صورة" />
-              <audio
-                src={station.streaming_url}
-                controls="controls"
-                autoPlay
-              >
-                Your browser does not support the <code>audio</code> element.
-              </audio>
+              <div className="text-center radio-img">
+                <img src={url + station.logo} alt="صورة" width="400" />
+              </div>
+              <div className="audio" >
+                <audio
+                  src={station.streaming_url}
+                  controls="controls"
+
+                >
+                  Your browser does not support the <code>audio</code> element.
+                </audio>
+              </div>
               <div className="table-responsive">
                 <table className="table">
                   <thead>
@@ -75,7 +80,7 @@ class App extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="info">
+                    <tr className="">
                       <td>{station.live_info.current_playing}</td>
                       <td>32 Kbps</td>
                       <td>{station.live_info.listeners_count}</td>
