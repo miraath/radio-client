@@ -65,7 +65,7 @@ class App extends Component {
                 <audio
                   src={station.streaming_url}
                   controls="controls"
-
+                  autoPlay
                 >
                   Your browser does not support the <code>audio</code> element.
                 </audio>
@@ -94,7 +94,7 @@ class App extends Component {
         }
         {
           (current === false) &&
-          <h2>Loading</h2>
+          <h2>في الانتظار</h2>
         }
       </div>
     );
